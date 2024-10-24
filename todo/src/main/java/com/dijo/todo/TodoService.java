@@ -31,8 +31,8 @@ public class TodoService {
     }
 
     public Todo addTodo(Todo todo) {
-        todo.setCreateAt(LocalDateTime.now());
-        todo.setUpdateAt(LocalDateTime.now());
+        todo.setCreatedAt(LocalDateTime.now());
+        todo.setUpdatedAt(LocalDateTime.now());
 
         Todo savedTodo = todoRepo.save(todo);
 
@@ -43,8 +43,8 @@ public class TodoService {
 
     public Todo updateTodo(Todo todo) {
         Optional<Todo> existingTodo = todoRepo.findById(todo.getId());
-        todo.setCreateAt(existingTodo.get().getCreateAt());
-        todo.setUpdateAt(LocalDateTime.now());
+        todo.setCreatedAt(existingTodo.get().getCreatedAt());
+        todo.setUpdatedAt(LocalDateTime.now());
 
         Todo updateTodo = todoRepo.save(todo);
         log.info("Todo with id {} updated successfully.", todo.getId() );

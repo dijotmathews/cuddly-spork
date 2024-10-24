@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name =  "Todo")
+@Table(name =  "todo", schema= "public")
 public class Todo {
     
     @Id
@@ -25,8 +25,8 @@ public class Todo {
     private String name;
     private String description;
     private LocalDateTime deadline;
-    private boolean idDone;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private boolean isDone;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     
 }
