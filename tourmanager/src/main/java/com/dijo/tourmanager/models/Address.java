@@ -1,4 +1,4 @@
-package com.dijo.tourmanager;
+package com.dijo.tourmanager.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

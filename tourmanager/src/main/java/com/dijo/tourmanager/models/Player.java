@@ -1,37 +1,37 @@
-package com.dijo.tourmanager;
+package com.dijo.tourmanager.models;
 
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Document(collection = "players")
 @Accessors(chain = true)
 @NoArgsConstructor
 @Data
-public class Player {
-
-    @MongoId(FieldType.OBJECT_ID)
-    private String id;
+@Getter
+@Setter
+public class Player extends BaseModel{
 
     @Indexed
     private String name;
 
-    private Date dob;
+//    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    private Date birthDate;
 
-    @Indexed
-    @Field(targetType = FieldType.STRING)
+//    @Indexed
+//    @Field(targetType = FieldType.STRING)
 
     private boolean isAvailable;
 
-    private Date createdAt;
 
-    private Date updatedAt;
 }

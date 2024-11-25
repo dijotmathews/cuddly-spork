@@ -1,8 +1,7 @@
 package com.dijo.tourmanager;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import com.dijo.tourmanager.models.Address;
+import com.dijo.tourmanager.models.Team;
 import lombok.Getter;
 import lombok.Setter;
 

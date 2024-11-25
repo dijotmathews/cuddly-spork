@@ -2,11 +2,10 @@ package com.dijo.tourmanager;
 
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.dijo.tourmanager.models.Player;
 
-@Setter
-@Getter
+
+
 public class CreatePlayerDto {
     private String name;
 
@@ -14,7 +13,12 @@ public class CreatePlayerDto {
 
     private boolean isAvailable;
 
+    public String getName() {
+        return name;
+    }
+
+
     public Player toPlayer() {
-        return new Player().setName(name).setDob(birthDate).setAvailable(isAvailable);
+        return new Player().setName(name).setBirthDate(birthDate).setAvailable(isAvailable);
     }
 }
