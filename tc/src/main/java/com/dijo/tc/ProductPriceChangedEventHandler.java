@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @Transactional
-public class ProductPriceChangedEventHandler {
+class ProductPriceChangedEventHandler {
 
     private static final Logger log = LoggerFactory.getLogger(
             ProductPriceChangedEventHandler.class
@@ -16,7 +16,7 @@ public class ProductPriceChangedEventHandler {
 
     private final ProductRepository productRepository;
 
-    public ProductPriceChangedEventHandler(ProductRepository productRepository) {
+    ProductPriceChangedEventHandler(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 

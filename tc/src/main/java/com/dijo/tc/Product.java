@@ -1,17 +1,20 @@
 package com.dijo.tc;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Entity
 @Table(name = "products")
-public class Product {
+class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String code;
@@ -19,26 +22,23 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
-
     @Column(nullable = false)
     private BigDecimal price;
 
-    public Product() {
+    public Product() {}
 
-    }
-
-    public Product(UUID id, String code, String name, BigDecimal price) {
+    public Product(Long id, String code, String name, BigDecimal price) {
         this.id = id;
         this.code = code;
         this.name = name;
         this.price = price;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
