@@ -1,6 +1,6 @@
 package dsa;
 
-public class LinearSearch {
+public class Search {
     public static void main(String[] args) {
         int[] nums = {4,5,6,9,12};
         int target = 9;

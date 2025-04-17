@@ -13,7 +13,7 @@ public class Sort {
         System.out.println();
 
 
-        int[] sortedNums = quickSort(nums, 0 , nums.length-1);
+        int[] sortedNums = mergeSort(nums, 0 , nums.length-1);
 
 
         for (int i = 0; i < nums.length; i++) {
@@ -91,6 +91,7 @@ public class Sort {
 
     }
 
+    // https://www.youtube.com/watch?v=zyoVdrFW6E8
     public static int partition(int low, int high, int[] nums) {
         int pivot = nums[high];
         int pi = low;
@@ -113,5 +114,65 @@ public class Sort {
         int tmp = nums[to];
         nums[to] = nums[from];
         nums[from] = tmp;
+    }
+
+
+    public static int[] mergeSort(int[] nums, int left, int right) {
+        if(left < right) {
+            int mid = (left + right) / 2;
+
+            mergeSort(nums, left, mid);
+            mergeSort(nums, mid + 1, right);
+
+            merge(nums, left, mid, right);
+        }
+        return nums;
+    }
+
+    public static void merge(int[] nums, int left, int mid,int right ) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int lArr[] = new int[n1];
+        int rArr[] = new int[n2];
+
+        for(int x=0; x< n1; x++) {
+            lArr[x] = nums[left+x];
+        }
+
+        for(int x=0; x < n2 ; x++) {
+            rArr[x] = nums[mid + 1 +x];
+        }
+
+        int i = 0; 
+        int j = 0;
+
+        int k = left;
+
+        while (i < n1 && j < n2 ) {
+            if(lArr[i] <= rArr[j]) {
+                nums[k] = lArr[i];
+                i++;
+            } else {
+                nums[k] = rArr[j];
+                j++;
+            }
+            k++;
+
+        }
+
+        while (i < n1) {
+            nums[k] = lArr[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            nums[k] = rArr[j];
+            j++; 
+            k++;
+        }
+
+
     }
 }
