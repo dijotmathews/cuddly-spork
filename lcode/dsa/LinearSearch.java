@@ -3,7 +3,7 @@ package dsa;
 public class LinearSearch {
     public static void main(String[] args) {
         int[] nums = {4,5,6,9,12};
-        int target = 12;
+        int target = 9;
 
         int result = binarySearch(nums, target);
         System.out.println(result);
