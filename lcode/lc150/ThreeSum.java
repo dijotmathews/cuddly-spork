@@ -32,8 +32,9 @@ public class ThreeSum {
         for(int i  =0; i < nums.length; i++) {
             int target = nums[i] * -1;
             Integer[] res = twoSum(nums, target, i, nums.length-1 );
-            if(res.length == 0){
-                result.add(List.of(res));
+            if(res.length != 0){
+                Integer[] out = new Integer[] { nums[i], res[0], res[1]};
+                result.add(Arrays.asList(out));
             }
         }
         return result;
