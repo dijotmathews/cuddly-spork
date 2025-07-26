@@ -24,16 +24,15 @@ public class GameOfLife {
         Integer[] life = {2,3};
 
 
-        for(int r =0 ; r < rows; r++ ) {
-            for(int c = 0 ; c < cols; c++) {
-
-                int neiCount = getNeigbourCount(r, c) ;
-
-                if(Arrays.asList(life).contains(neiCount)) {
-
-                }
-            }
-        }
+//        for(int r =0 ; r < rows; r++ ) {
+//            for(int c = 0 ; c < cols; c++) {
+//
+////                int neiCount = getNeigbourCount(r, c) ;
+//                if(Arrays.asList(life).contains(neiCount)) {
+//
+//                }
+//            }
+//        }
 
     }
 
