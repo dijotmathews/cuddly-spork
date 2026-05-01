@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="3.0"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <!-- ========================= -->
+    <!-- 1) RESOURCE_LOCAL (typical CLI/app) -->
+    <!-- ========================= -->
+    <persistence-unit name="my-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        <!-- Either list entities explicitly... -->
+         <class>com.dijo.entities.Product</class>
+        <class>com.dijo.entities.VehicleDetails</class>
+        <class>com.dijo.entities.Vehicle</class>
+        <!-- ...or let the provider scan your classpath: -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+        <properties>
+            <!-- JDBC (PostgreSQL example) -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+
+            <!-- Tell Hibernate to use HikariCP (it’s the default in modern Hibernate if HikariCP is present) -->
+            <!-- Hikari config (all optional but recommended) -->
+<!--            <property name="hibernate.hikari.maximumPoolSize" value="10"/>-->
+<!--            <property name="hibernate.hikari.minimumIdle" value="2"/>-->
+<!--            <property name="hibernate.hikari.idleTimeout" value="600000"/>         &lt;!&ndash; 10 min &ndash;&gt;-->
+<!--            <property name="hibernate.hikari.connectionTimeout" value="30000"/>     &lt;!&ndash; 30 s &ndash;&gt;-->
+<!--            <property name="hibernate.hikari.poolName" value="MyHikariPool"/>-->
+
+            <!-- Hibernate options -->
+            <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>      <!-- validate|update|create|create-drop|none -->
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- hibernate.dialect is optional; Hibernate usually infers from JDBC driver -->
+            <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> -->
+
+            <!-- Connection pool (optional, HikariCP via settings) -->
+            <!-- <property name="hibernate.hikari.maximumPoolSize" value="10"/> -->
+        </properties>
+    </persistence-unit>
+
+
+</persistence>
