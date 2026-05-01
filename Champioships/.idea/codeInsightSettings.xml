@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaProjectCodeInsightSettings">
+    <excluded-names>
+      <name>java.awt</name>
+      <name>javax.swing</name>
+      <name>jdk.internal</name>
+      <name>sun.plugin</name>
+    </excluded-names>
+  </component>
+</project>
